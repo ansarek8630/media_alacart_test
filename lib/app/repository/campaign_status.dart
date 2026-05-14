@@ -1,1 +1,0 @@
-enum CampaignStatus { active, paused, ended }

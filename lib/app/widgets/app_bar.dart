@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/constant/app_colors.dart';
+import 'package:media_alacart_test/core/theme/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -23,17 +23,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: const TextStyle(
           color: AppColors.textPrimary,
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w700,
           letterSpacing: -0.3,
         ),
       ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.tune, color: AppColors.textMuted),
-          onPressed: () {},
-        ),
-      ],
     );
   }
 }
