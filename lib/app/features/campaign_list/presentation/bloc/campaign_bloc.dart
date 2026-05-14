@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:media_alacart_test/app/presentation_layer/campaign_list/presentation/bloc/campaign_event.dart';
-import 'package:media_alacart_test/app/presentation_layer/campaign_list/presentation/bloc/campaign_state.dart';
+import 'package:media_alacart_test/app/features/campaign_list/presentation/bloc/campaign_event.dart';
+import 'package:media_alacart_test/app/features/campaign_list/presentation/bloc/campaign_state.dart';
 
 import '../../data/models/campaign_list_model.dart';
 import '../../data/repository/campaign_repo.dart';

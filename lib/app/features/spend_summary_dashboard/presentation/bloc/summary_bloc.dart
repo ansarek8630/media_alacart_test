@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:media_alacart_test/app/presentation_layer/spend_summary_dashboard/data/repository/summary_repo.dart';
+import 'package:media_alacart_test/app/features/spend_summary_dashboard/data/repository/summary_repo.dart';
 import '../../data/models/summary_model.dart';
 
 abstract class SummaryEvent {}

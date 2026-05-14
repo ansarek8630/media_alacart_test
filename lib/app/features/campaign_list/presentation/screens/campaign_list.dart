@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:media_alacart_test/app/presentation_layer/campaign_list/presentation/bloc/campaign_event.dart';
-import 'package:media_alacart_test/app/presentation_layer/campaign_list/presentation/bloc/campaign_state.dart';
+import 'package:media_alacart_test/app/features/campaign_list/presentation/bloc/campaign_event.dart';
+import 'package:media_alacart_test/app/features/campaign_list/presentation/bloc/campaign_state.dart';
 import 'package:media_alacart_test/app/widgets/app_bar.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
@@ -55,8 +55,19 @@ class _CampaignListPageState extends State<CampaignListPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       itemCount: state.filteredCampaigns.length,
                       itemBuilder: (context, index) {
-                        return CampaignCard(
-                          campaign: state.filteredCampaigns[index],
+                        final campaign = state.filteredCampaigns[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/detail',
+                              arguments: campaign.id,
+                            );
+                          },
+
+                          child: CampaignCard(
+                            campaign: state.filteredCampaigns[index],
+                          ),
                         );
                       },
                     ),

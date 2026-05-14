@@ -24,4 +24,8 @@ class AppColors {
   static const navActive = Color(0xFF00E5FF);
   static const navInactive = Color(0xFF636366);
   static const navBorder = Color(0xFF2C2C30);
+
+  static const Color success = Color(0xFF4CAF50); // Green for Active/Positive
+  static const Color info = Color(0xFF2196F3); // Blue for Objective pill
+  static const Color error = Color(0xFFE53935);
 }
