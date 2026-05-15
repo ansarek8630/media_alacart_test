@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:media_alacart_test/app/features/campaign_list/presentation/screens/campaign_list.dart';
+import 'package:media_alacart_test/app/features/profile/profile.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../spend_summary_dashboard/presentation/screens/spend_summary_dashboard.dart';
@@ -19,7 +20,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     SummaryScreen(),
     // AnomalyAlertsPage(),
     Placeholder(),
-    Placeholder(),
+    ProfileScreen(),
   ];
 
   @override

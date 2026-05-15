@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:media_alacart_test/app/features/campaign_details/data/repository/campaign_detail_repo.dart';
 import 'package:media_alacart_test/app/features/campaign_details/data/repository/forecast_repo.dart';
-
-// Your existing imports
 import 'package:media_alacart_test/app/features/campaign_list/presentation/bloc/campaign_event.dart';
 import 'package:media_alacart_test/app/features/spend_summary_dashboard/data/repository/summary_repo.dart';
 import 'package:media_alacart_test/app/features/spend_summary_dashboard/presentation/bloc/summary_bloc.dart';
@@ -13,12 +11,12 @@ import 'package:media_alacart_test/core/routes/app_routes.dart';
 import 'app/features/campaign_list/data/repository/campaign_repo.dart';
 import 'app/features/campaign_list/presentation/bloc/campaign_bloc.dart';
 
-
-
 void main() {
-  // 1. Initialize Network Client  
-  final dio = Dio();
-
+  final dio = Dio(
+    BaseOptions(
+      baseUrl: 'https://e5eb0d84-2b7e-4c32-98b9-233668b4e189.mock.pstmn.io/v1',
+    ),
+  );
   runApp(MyApp(dio: dio));
 }
 
@@ -29,20 +27,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 2. MultiRepositoryProvider allows the AppRouter to fetch these on-demand
     return MultiRepositoryProvider(
       providers: [
-        // Base repos for bottom nav screens
         RepositoryProvider(create: (_) => CampaignRepository(dio)),
         RepositoryProvider(create: (_) => SummaryRepository(dio)),
         RepositoryProvider(create: (_) => CampaignDetailRepository(dio)),
         RepositoryProvider(create: (_) => ForecastRepository(dio)),
       ],
-      // 3. MultiBlocProvider for global states (Bottom Nav tabs)
       child: MultiBlocProvider(
         providers: [
           BlocProvider<CampaignBloc>(
-            // Use context.read to grab the repo provided just above
             create: (context) =>
                 CampaignBloc(context.read<CampaignRepository>())
                   ..add(FetchCampaigns()),

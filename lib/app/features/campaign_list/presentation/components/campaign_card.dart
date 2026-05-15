@@ -128,7 +128,7 @@ class CampaignCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildFooterInfo(Icons.calendar_month, 'Start date', campaign.startDate),
+              _buildFooterInfo(Icons.calendar_month, 'Start date', campaign.startDate?.toIso8601String() ?? ''),
               _buildFooterInfo(Icons.radar, 'Audience', campaign.channel),
             ],
           )

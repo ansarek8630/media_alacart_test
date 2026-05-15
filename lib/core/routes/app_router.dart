@@ -1,9 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:media_alacart_test/app/features/bottom_nav/bottom_nav.dart';
-import 'package:media_alacart_test/app/features/campaign_details/campaign_details.dart';
+import 'package:media_alacart_test/app/features/campaign_details/presentation/screens/campaign_details.dart';
 import 'package:media_alacart_test/app/features/campaign_details/data/repository/campaign_detail_repo.dart';
 import 'package:media_alacart_test/app/features/campaign_details/data/repository/forecast_repo.dart';
 import 'package:media_alacart_test/app/features/campaign_details/presentation/bloc/campaign_detail_bloc.dart';
@@ -25,9 +23,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => CampaignDetailBloc(
-              context.read<CampaignDetailRepository>(), 
+              repository: context.read<CampaignDetailRepository>(),
               forecastRepo: context.read<ForecastRepository>(),
-              campaignRepo: context.read<CampaignRepository>(),
             )..add(LoadCampaignDetail(campaignId)),
             child: const CampaignDetailScreen(),
           ),
@@ -35,7 +32,8 @@ class AppRouter {
 
       default:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(body: Center(child: Text('Route not found'))),
+          builder: (_) =>
+              const Scaffold(body: Center(child: Text('Route not found'))),
         );
     }
   }

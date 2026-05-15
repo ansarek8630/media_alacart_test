@@ -1,5 +1,5 @@
 import 'package:media_alacart_test/app/features/campaign_details/data/models/campaign_detail_model.dart';
-import 'package:media_alacart_test/app/features/campaign_details/data/models/forcast_model.dart';
+import 'package:media_alacart_test/app/features/campaign_details/data/models/forecast_model.dart';
 
 abstract class CampaignDetailState {}
 class CampaignDetailLoading extends CampaignDetailState {}
